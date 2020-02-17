@@ -1,0 +1,25 @@
+cmake_minimum_required( VERSION 3.13 )
+
+project("bank_records")
+
+set_property( GLOBAL PROPERTY GLOBAL_DEPENDS_NO_CYCLES ON )
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_compile_options(
+    -Wall
+    -Wextra
+    -Werror
+    -Wno-switch
+    -Wno-switch-enum
+)
+
+set(SOURCE_FILES main.cpp)
+
+add_subdirectory(user_input)
+
+add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+
+target_link_libraries(${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/user_input/user_input.a)

@@ -1,6 +1,7 @@
 cmake_minimum_required( VERSION 3.13 )
 
-project(bank_records CXX)
+set(targetName launch)
+project(${targetName} CXX)
 
 set_property( GLOBAL PROPERTY GLOBAL_DEPENDS_NO_CYCLES ON )
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
@@ -16,13 +17,10 @@ add_compile_options(
     -Wno-switch-enum
 )
 
-add_library(user_input STATIC 
-    readUserInput.cpp
-    readUserInput.hpp
-)
+add_executable(${targetName} main.cpp)
 
-add_executable(bank_records main.cpp)
+add_subdirectory(user_input)
 
-target_link_libraries(bank_records PRIVATE user_input)
+target_link_libraries(${targetName} PUBLIC user_input)
 
 add_executable(tests EXCLUDE_FROM_ALL runAllTests.cpp)

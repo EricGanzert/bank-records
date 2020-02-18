@@ -2,7 +2,6 @@
 #include <testUserInput.hpp>
 using namespace std;
 
-
 int main()
 {
     bool pass{true};

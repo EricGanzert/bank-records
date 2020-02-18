@@ -9,3 +9,7 @@ target_include_directories(${targetName}
   PUBLIC
     .
 )
+
+target_link_libraries(${targetName} PUBLIC
+    test_structures
+)

@@ -1,35 +1,32 @@
-#include "testUserInput.hpp"
 #include <iostream>
+
+#include "testUserInput.hpp"
+#include <testStructures.hpp>
+
 using namespace std;
+using namespace test;
 
 namespace testuserinput {
 
 bool all()
 {
+    cout << "Running All User Input Tests..." << endl;
+
     bool result{true};
-    bool pass{false};
-
-    pass = test1();
-    pass ? cout << "PASSED" << endl : cout << "FAILED" << endl;
-    result &= pass;
-
-    pass = test2();
-    pass ? cout << "PASSED" << endl : cout << "FAILED" << endl;
-    result &= pass;
+    result &= runAndLogResult(test1, "test1");
+    result &= runAndLogResult(test2, "test2");
 
     return result;
 }
 
 bool test1()
 {
-    cout << __func__<< " --> ";
     return true;
 }
 
 bool test2()
 {
-    cout << __func__<< " --> ";
-    return false;
+    return true;
 }
 
 }

@@ -23,6 +23,4 @@ add_subdirectory(user_input)
 
 target_link_libraries(${targetName} PUBLIC user_input)
 
-add_executable(tests runAllTests.cpp)
-
-target_link_libraries(tests test_user_input)
+add_subdirectory(test)

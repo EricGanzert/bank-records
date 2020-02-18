@@ -23,4 +23,6 @@ add_library(user_input STATIC
 
 add_executable(bank_records main.cpp)
 
-target_link_libraries(bank_records PUBLIC user_input)
+target_link_libraries(bank_records PRIVATE user_input)
+
+add_executable(tests EXCLUDE_FROM_ALL runAllTests.cpp)

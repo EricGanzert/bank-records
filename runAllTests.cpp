@@ -1,13 +1,17 @@
 #include <iostream>
+#include <testUserInput.hpp>
 using namespace std;
 
-bool test()
-{
-    cout << "running tests" << endl;
-    return true;
-}
 
 int main()
 {
-    test();
+    bool pass{true};
+    pass &= testuserinput::all();
+
+    if (pass)
+    {
+        cout << "All tests passed" << endl;
+        return 0;
+    }
+    cout << "Not all tests passed" << endl;
 }

@@ -9,3 +9,5 @@ target_include_directories(${targetName}
   PUBLIC
     .
 )
+
+add_subdirectory(test)
